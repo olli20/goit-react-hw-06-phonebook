@@ -24,14 +24,8 @@ const ContactForm = ({onSubmit, contacts}) => {
         if(isNameAlreadyHere){
            return alert(`${name} is already in contacts`);
         };
-       
-        const newContact = {
-          name,
-          number,
-          id: nanoid(),
-        };
 
-        onSubmit(newContact);
+        onSubmit({ name, number });
         setState({...initialState});
     }
     
