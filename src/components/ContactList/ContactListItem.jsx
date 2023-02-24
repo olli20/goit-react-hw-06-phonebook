@@ -4,11 +4,11 @@ import { HiXMark } from "react-icons/hi2";
 
 import styles from './contact-list.module.scss';
 
-const ContactListItem = ({id, name, number, onDeleteContact}) => {
+const ContactListItem = ({id, name, number, onRemoveContact}) => {
     return (
         <li className={styles.listItem}>
             <span>{name}: </span><span>{number}</span>
-            <button onClick={() => onDeleteContact(id)} type="button" className={styles.btn}>
+            <button onClick={() => onRemoveContact(id)} type="button" className={styles.btn}>
                 <HiXMark />
             </button>
         </li>
@@ -21,5 +21,5 @@ ContactListItem.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    onDeleteContact: PropTypes.func.isRequired,
+    onRemoveContact: PropTypes.func.isRequired,
 }

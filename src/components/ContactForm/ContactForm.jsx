@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useMemo} from 'react';
 import {nanoid} from "nanoid";
 import PropTypes from 'prop-types';
 
@@ -9,8 +9,8 @@ import styles from './contact-form.module.scss';
 const ContactForm = ({onSubmit, contacts}) => {
     const [state, setState] = useState({...initialState});
 
-    const nameInputId = nanoid();
-    const numberInputId = nanoid();
+    const nameInputId = useMemo(()=> nanoid(), []);;
+    const numberInputId = useMemo(()=> nanoid(), []);;
 
     const handleChange = ({target}) => {
         const {name, value} = target;
@@ -25,7 +25,7 @@ const ContactForm = ({onSubmit, contacts}) => {
            return alert(`${name} is already in contacts`);
         };
 
-        onSubmit({ name, number });
+        onSubmit({name, number});
         setState({...initialState});
     }
     
