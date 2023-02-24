@@ -19,14 +19,14 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const submitHandler = ({ name, number }) => {
-    dispatch(addContact({ name, number }));
+  const submitHandler = ({name, number}) => {
+    dispatch(addContact({name, number}));
   };
 
   const removeHandler = id => {
     dispatch(removeContact(id));
   }
-  const changeFilter = ({ target }) => {
+  const filterHandler = ({ target }) => {
     dispatch(setFilter(target.value));
 };
 
@@ -35,9 +35,8 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={submitHandler} contacts={contacts} />
       <h2>Contacts</h2>
-      <Filter filter={filter} onFilter={changeFilter} />
-      <ContactList contacts={filteredContacts} onDeleteContact={removeHandler} 
-      />
+      <Filter filter={filter} changeFilter={filterHandler} />
+      <ContactList contacts={filteredContacts} onRemoveContact={removeHandler} />
     </div>
   );
 }

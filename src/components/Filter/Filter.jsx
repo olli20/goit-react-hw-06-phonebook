@@ -1,18 +1,19 @@
+import {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './filter.module.scss';
 
-const Filter = ({filter, onFilter}) => {
+const Filter = ({filter, changeFilter}) => {
     return (
-        <>
+        <Fragment>
             <p className={styles.message}>Find contacts by name</p>
             <input 
                 type="text"
                 value={filter} 
-                onChange={onFilter} 
+                onChange={changeFilter} 
                 className={styles.input}
             />
-        </>
+        </Fragment>
     )
 }
 
